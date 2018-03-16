@@ -1,0 +1,13 @@
+<div class="jumbotron selling">
+    <h2 class="text-center">SELLING</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <div class="form-group" [ngClass]="{'has-error':!formGroup.controls['sellingPrice'].valid && formGroup.controls['sellingPrice'].touched}">
+          <label>Selling Price</label>
+          <input type="text" class="form-control" [formControl]="formGroup.controls['sellingPrice']" currencyMask/>
+          <div *ngIf="formGroup.controls['sellingPrice'].hasError('required') && formGroup.controls['sellingPrice'].touched" class="alert alert-danger">You must enter a valid selling price</div>
+          {{outputSellingPrice | currency:'PHP'}}
+        </div>
+      </div>
+    </div>
+  </div>

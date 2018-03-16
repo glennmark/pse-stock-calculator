@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.form-group .form-control {
+    border-radius:0;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #c1dfff;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(111, 178, 250, 0.15);
+    box-shadow: 0 0 0 0.2rem rgba(111, 178, 250, 0.15);
+}
+.form-group.has-error > .form-control {
+    color: #495057;
+    background-color: #fff;
+    border-color: #f8d7da;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgb(248, 215, 218.2);
+    box-shadow: 0 0 0 0.2rem rgb(248, 215, 218,.2);
+    margin-bottom:5px;
+}
+.alert {
+    border-radius: 0;
+    font-size: 12.5px;
+    padding: 5px;
+}
+.alert-danger {
+    color: #de7982;
+    background-color: #fff3f4;
+    border-color: #ffe3e6;
+}
