@@ -25,6 +25,9 @@ export class SellingComponent implements OnInit {
   private netProfit() {
     return this._computeTransaction.netProfit();
   }
+  private netProfitInPercentage() {
+    return this._computeTransaction.netProfitInPercentage();
+  }
   
 
   ngOnInit() {

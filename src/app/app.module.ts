@@ -50,6 +50,7 @@ import { SharesComponent } from './shares/shares.component';
 import { BuyingComponent } from './buying/buying.component';
 import { SellingComponent } from './selling/selling.component';
 import { ComputeTransactionService } from './compute-transaction.service';
+import { GainlossComponent } from './gainloss/gainloss.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -68,7 +69,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     NumbersOnlyDirective,
     SharesComponent,
     BuyingComponent,
-    SellingComponent
+    SellingComponent,
+    GainlossComponent
     
   ],
   imports: [

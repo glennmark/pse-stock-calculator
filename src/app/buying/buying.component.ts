@@ -38,6 +38,9 @@ export class BuyingComponent implements OnInit {
   private totalBuyingFees() {
     return this._computeTransaction.totalBuyingFees();
   }
+  private breakEven() {
+    return this._computeTransaction.breakEven();
+  }
   
   
 

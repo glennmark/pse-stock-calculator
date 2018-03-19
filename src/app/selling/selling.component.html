@@ -21,7 +21,7 @@
           <tr>
             <td>{{totalSellingFees() | currency:'PHP'}}</td>
             <td>{{totalSellingTransactionCost() | currency:'PHP'}}</td>
-            <td>{{netProfit() | currency:'PHP'}}</td>
+            <td>{{netProfit() | currency:'PHP'}} ({{netProfitInPercentage() | number}}%)</td>
           </tr>
         </tbody>
       </table>

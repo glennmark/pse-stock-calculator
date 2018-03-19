@@ -75,6 +75,9 @@ export class ComputeTransactionService {
   totalBuyingTransactionCost() {
     return this.computeGrossTransactionAmount() + this.computeBrokersCommission_Buying() + this.computeVATonBrokersCommission() + this.computeSCCPFee() + this.computePSETransactionFee();
   }
+  breakEven() {
+    return this.buyingPrice * 1.011;
+  }
 
   //selling
   computeGrossTransactionAmount_Selling() {
@@ -97,12 +100,12 @@ export class ComputeTransactionService {
     return 0.005 * this.computeGrossTransactionAmount_Selling();
   }
   totalSellingFees() {
-    /*console.log("less broker commisssion:" + this.computeBrokersCommission_Selling());
+    console.log("less broker commisssion:" + this.computeBrokersCommission_Selling());
     console.log("less vat:" + this.computeVATonBrokersCommission());
     console.log("less sccp fee:" + this.computeSCCPFee());
     console.log("less pse fee:" + this.computePSETransactionFee());
     console.log("less transaction tax:" + this.computeStockTransactionTax());
-    console.log("===========");*/
+    console.log("===========");
     return this.computeBrokersCommission_Selling() + this.computeVATonBrokersCommission() + this.computeSCCPFee() + this.computePSETransactionFee() + this.computeStockTransactionTax();
     
   }
@@ -112,6 +115,55 @@ export class ComputeTransactionService {
   
   netProfit() {
     return this.totalSellingTransactionCost() - this.totalBuyingTransactionCost();
+  }
+  netProfitInPercentage() {
+    let nValue = (this.netProfit() / this.totalBuyingTransactionCost()) * 100;
+    return nValue.toFixed(2);
+  }
+
+
+  //loss
+  loss_1() {
+    let nValue = this.buyingPrice * .981
+    return nValue.toFixed(2);
+  }
+  loss_2() {
+    let nValue = this.buyingPrice *  .96;
+    return nValue.toFixed(2);
+  }
+  loss_3() {
+    let nValue = this.buyingPrice *  .93;
+    return nValue.toFixed(2);
+  }
+  loss_4() {
+    let nValue = this.buyingPrice *  .91;
+    return nValue.toFixed(2);
+  }
+  loss_5() {
+    let nValue = this.buyingPrice *  .859;
+    return nValue.toFixed(2);
+  }
+
+  //gain
+  gain_1() {
+    let nValue = this.buyingPrice * 1.041;
+    return nValue.toFixed(2);
+  }
+  gain_2() {
+    let nValue = this.buyingPrice * 1.061;
+    return nValue.toFixed(2);
+  }
+  gain_3() {
+    let nValue = this.buyingPrice * 1.092;
+    return nValue.toFixed(2);
+  }
+  gain_4() {
+    let nValue = this.buyingPrice * 1.112;
+    return nValue.toFixed(2);
+  }
+  gain_5() {
+    let nValue = this.buyingPrice * 1.163;
+    return nValue.toFixed(2);
   }
 
 
