@@ -20,6 +20,26 @@ export class BuyingComponent implements OnInit {
   private computeGrossTransactionAmount(){
     return this._computeTransaction.computeGrossTransactionAmount();
   }
+  private computeBrokersCommission() {
+    return this._computeTransaction.computeBrokersCommission();
+  }
+  private computeVATonBrokersCommission() {
+    return this._computeTransaction.computeVATonBrokersCommission();
+  }
+  private computeSCCPFee() {
+    return this._computeTransaction.computeSCCPFee();
+  }
+  private computePSETransactionFee() {
+    return this._computeTransaction.computePSETransactionFee();
+  }
+  private totalBuyingTransactionCost() {
+    return this._computeTransaction.totalBuyingTransactionCost();
+  }
+  private totalFees() {
+    return this._computeTransaction.totalFees();
+  }
+  
+  
 
   ngOnInit() {
     this.formGroup.get('buyingPrice').valueChanges.subscribe(nValue => {
