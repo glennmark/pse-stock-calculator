@@ -6,31 +6,8 @@
         <label>Buying Price</label>
         <input type="text" class="form-control" [formControl]="formGroup.controls['buyingPrice']" currencyMask/>
         <div *ngIf="formGroup.controls['buyingPrice'].hasError('required') && formGroup.controls['buyingPrice'].touched" class="alert alert-danger">You must enter a valid buying price</div>
-        {{outputBuyingPrice | currency:'PHP'}}
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12">
-        <div>
-          This is the Gross Amount: {{computeGrossTransactionAmount() | currency:'PHP'}}
-        </div>
-        <div>
-          This is the Broker's Commission: {{computeBrokersCommission() | currency:'PHP'}}
-        </div>
-        <div>
-          This is the VAT on Broker's Commission: {{computeVATonBrokersCommission() | currency:'PHP'}}
-        </div>
-        <div>
-          This is the SCCP Fee: {{computeSCCPFee() | currency:'PHP'}}
-        </div>
-        <div>
-          This is the PSE Transaction Fee: {{computePSETransactionFee() | currency:'PHP'}}
-        </div>
-        <div>
-          This is the TOTAL BUYING COST: {{totalBuyingTransactionCost() | currency:'PHP'}}
-        </div>
-      </div>
-    </div>
+    </div>  
 
     <div class="col-xs-12 col-sm-12">
       <table class="table table-dark">
@@ -43,12 +20,34 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{totalFees() | currency:'PHP'}}</td>
+            <td>{{totalBuyingFees() | currency:'PHP'}}</td>
             <td>{{totalBuyingTransactionCost() | currency:'PHP'}}</td>
             <td>{{breakEven}}</td>
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="row" style="display:none;">
+    <div class="col-xs-12 col-sm-12">
+      <div>
+        This is the Gross Amount: {{computeGrossTransactionAmount() | currency:'PHP'}}
+      </div>
+      <div>
+        This is the Broker's Commission: {{computeBrokersCommission_Buying() | currency:'PHP'}}
+      </div>
+      <div>
+        This is the VAT on Broker's Commission: {{computeVATonBrokersCommission() | currency:'PHP'}}
+      </div>
+      <div>
+        This is the SCCP Fee: {{computeSCCPFee() | currency:'PHP'}}
+      </div>
+      <div>
+        This is the PSE Transaction Fee: {{computePSETransactionFee() | currency:'PHP'}}
+      </div>
+      <div>
+        This is the TOTAL BUYING COST: {{totalBuyingTransactionCost() | currency:'PHP'}}
+      </div>
     </div>
   </div>
 </div>

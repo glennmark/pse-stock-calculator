@@ -20,8 +20,8 @@ export class BuyingComponent implements OnInit {
   private computeGrossTransactionAmount(){
     return this._computeTransaction.computeGrossTransactionAmount();
   }
-  private computeBrokersCommission() {
-    return this._computeTransaction.computeBrokersCommission();
+  private computeBrokersCommission_Buying() {
+    return this._computeTransaction.computeBrokersCommission_Buying();
   }
   private computeVATonBrokersCommission() {
     return this._computeTransaction.computeVATonBrokersCommission();
@@ -35,8 +35,8 @@ export class BuyingComponent implements OnInit {
   private totalBuyingTransactionCost() {
     return this._computeTransaction.totalBuyingTransactionCost();
   }
-  private totalFees() {
-    return this._computeTransaction.totalFees();
+  private totalBuyingFees() {
+    return this._computeTransaction.totalBuyingFees();
   }
   
   

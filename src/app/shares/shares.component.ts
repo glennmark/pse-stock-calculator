@@ -9,7 +9,6 @@ import { ComputeTransactionService } from '../compute-transaction.service';
 })
 export class SharesComponent implements OnInit {
   @Input() public formGroup: FormGroup;
-  public testInput = "banana";
   brokers = [
     { id: 0, name: "BDO Nomura" },
     { id: 1, name: "BPITrade" },
@@ -27,7 +26,8 @@ export class SharesComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup.get('selectedBroker').valueChanges.subscribe(nValue => {
-      this.outputSelectedBroker = nValue
+      this.outputSelectedBroker = nValue;
+      this._computeTransaction.getSpecificBroker(nValue);
     });
     this.formGroup.get('numOfShares').valueChanges.subscribe(nValue => {
       // this.outputNumOfShares = nValue;

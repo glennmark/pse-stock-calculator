@@ -2,6 +2,9 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+.jumbotron {
+    min-height: 400px;
+}
 .form-group .form-control {
     border-radius:0;
 }
