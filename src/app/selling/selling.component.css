@@ -3,3 +3,9 @@
     background-color: #f2dede;
     border-color: #ebccd1;
 }
+td.red-profit {
+    color:#dc3545;
+}
+td.green-profit {
+    color:#28a745;
+}

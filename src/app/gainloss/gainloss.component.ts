@@ -10,6 +10,8 @@ import { ComputeTransactionService } from '../compute-transaction.service';
 export class GainlossComponent implements OnInit {
   @Input() public formGroup: FormGroup;
 
+  showGainLoss:boolean = false;  
+
   constructor(private _computeTransaction: ComputeTransactionService) { }
 
   loss_Instance1() {
@@ -45,7 +47,8 @@ export class GainlossComponent implements OnInit {
   }
 
 
-  ngOnInit() {
+  ngOnInit() {    
   }
+
 
 }

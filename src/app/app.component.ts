@@ -15,13 +15,14 @@ import { ComputeTransactionService } from './compute-transaction.service';
 export class AppComponent {
 
   title: string;
-  
-  
-  
+  nightMode:boolean = false;
+
+
+
   stockForm: FormGroup;
-  constructor(fb: FormBuilder, 
-              private _computeTransaction: ComputeTransactionService
-              ) {
+  constructor(fb: FormBuilder,
+    private _computeTransaction: ComputeTransactionService
+  ) {
     this.stockForm = fb.group({
 
       'selectedBroker': [null, Validators.required],
@@ -35,12 +36,13 @@ export class AppComponent {
   ngOnInit() {
     //this.title = this.ComputeTransactionService.enterSampleText();
     
-    
+
   }
 
   //functions here
-  ConvertToInt(val) {
-    return parseInt(val);
+  toggleNightMode() {
+    this.nightMode = !this.nightMode;
+    console.log('nightMode is: ' + this.nightMode);
   }
 
 

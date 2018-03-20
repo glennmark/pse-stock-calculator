@@ -1,13 +1,12 @@
 <div class="row">
     <div class="col-xs-12 col-sm-3">
       <div class="form-group" [ngClass]="{'has-error':!formGroup.controls['selectedBroker'].valid && formGroup.controls['selectedBroker'].touched}">
-        <label appBlueColored>Broker</label>
+        <label>Broker</label>
         <select [formControl]="formGroup.controls['selectedBroker']" class="form-control">
           <option [disabled]="true" [selected]="true">Select Option</option>
-          <option *ngFor="let c of brokers" [ngValue]="c.id">{{c.name}}</option>
+          <option *ngFor="let c of brokers" [ngValue]="c.value">{{c.label}}</option>
         </select>
         <div *ngIf="formGroup.controls['selectedBroker'].hasError('required') && formGroup.controls['selectedBroker'].touched" class="alert alert-danger">You must select a broker</div>
-        {{outputSelectedBroker}}
       </div>
     </div>
     <div class="col-xs-12 col-sm-3">
@@ -16,7 +15,6 @@
         <input type="text" class="form-control" [formControl]="formGroup.controls['numOfShares']" appNumbersOnly/>
         <div *ngIf="formGroup.controls['numOfShares'].hasError('required') && formGroup.controls['numOfShares'].touched" class="alert alert-danger">You must enter the number of shares.</div>
         <div *ngIf="formGroup.controls['numOfShares'].hasError('min')" class="alert alert-danger">You must enter at least 1 share</div>
-        {{outputNumOfShares}}
       </div>
     </div>
 

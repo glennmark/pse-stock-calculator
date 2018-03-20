@@ -10,13 +10,13 @@ import { ComputeTransactionService } from '../compute-transaction.service';
 export class SharesComponent implements OnInit {
   @Input() public formGroup: FormGroup;
   brokers = [
-    { id: 0, name: "BDO Nomura" },
-    { id: 1, name: "BPITrade" },
-    { id: 1, name: "ColFinancial" },
-    { id: 0, name: "FirstMetroSec" },
-    { id: 1, name: "MakeTrade" },
-    { id: 1, name: "PhilStocks" },
-    { id: 0, name: "Others" }
+    { value: 1, label: "BDO Nomura" },
+    { value: 2, label: "BPITrade" },
+    { value: 2, label: "ColFinancial" },
+    { value: 1, label: "FirstMetroSec" },
+    { value: 2, label: "MakeTrade" },
+    { value: 2, label: "PhilStocks" },
+    { value: 1, label: "Others" }
   ];
   outputSelectedBroker = '';
   outputNumOfShares = '';

@@ -1,30 +1,34 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>LOSS</th>
-      <th>GAIN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="text-danger">{{loss_Instance1() | number}} (-3%)</td>
-      <td class="text-success">{{gain_Instance1() | number}} (3%)</td>
-    </tr>
-    <tr>
-      <td class="text-danger">{{loss_Instance2() | number}} (-5%)</td>
-      <td class="text-success">{{gain_Instance2() | number}} (5%)</td>
-    </tr>
-    <tr>
-      <td class="text-danger">{{loss_Instance3() | number}} (-8%)</td>
-      <td class="text-success">{{gain_Instance3() | number}} (8%)</td>
-    </tr>
-    <tr>
-      <td class="text-danger">{{loss_Instance4() | number}} (-10%)</td>
-      <td class="text-success">{{gain_Instance4() | number}} (10%)</td>
-    </tr>
-    <tr>
-      <td class="text-danger">{{loss_Instance5() | number}} (-15%)</td>
-      <td class="text-success">{{gain_Instance5() | number}} (15%)</td>
-    </tr>
-  </tbody>
-</table>
+<button class="btn btn-default" (click)="showGainLoss = true" [hidden]="showGainLoss" [ngClass]="{'disabled':formGroup.controls['numOfShares'].value == null || formGroup.controls['numOfShares'].value == '' || formGroup.controls['numOfShares'].value == 0 || formGroup.controls['buyingPrice'].value == null || formGroup.controls['buyingPrice'].value == '' || formGroup.controls['buyingPrice'].value == 0,'btn-success':formGroup.controls['numOfShares'].value > 0 && formGroup.controls['buyingPrice'].value > 0}">SHOW GAIN OR LOSS DATAMAP</button>
+<div [hidden]="!showGainLoss">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>LOSS</th>
+            <th>GAIN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-danger">{{loss_Instance1()}} (-3%)</td>
+            <td class="text-success">{{gain_Instance1()}} (3%)</td>
+          </tr>
+          <tr>
+            <td class="text-danger">{{loss_Instance2()}} (-5%)</td>
+            <td class="text-success">{{gain_Instance2()}} (5%)</td>
+          </tr>
+          <tr>
+            <td class="text-danger">{{loss_Instance3()}} (-8%)</td>
+            <td class="text-success">{{gain_Instance3()}} (8%)</td>
+          </tr>
+          <tr>
+            <td class="text-danger">{{loss_Instance4()}} (-10%)</td>
+            <td class="text-success">{{gain_Instance4()}} (10%)</td>
+          </tr>
+          <tr>
+            <td class="text-danger">{{loss_Instance5()}} (-15%)</td>
+            <td class="text-success">{{gain_Instance5()}} (15%)</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-danger" (click)="showGainLoss = false">HIDE GAIN OR LOSS DATAMAP</button>
+</div>

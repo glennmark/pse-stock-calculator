@@ -1,7 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
+
+<div class="angularContainer" [ngClass]="{'night-mode':nightMode == true}">
   <mat-toolbar>
-    <span>PSE Stock Calculator</span>
+      <span>PSE Stock Calculator</span>
+    
+      <span class="fill-remaining-space"></span>
+    <mat-slide-toggle (click)="toggleNightMode()">Night Mode</mat-slide-toggle>
   </mat-toolbar>
   <div class="container">
     <div class="row">
@@ -24,7 +28,12 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-12">
-              <app-gainloss [(formGroup)]="stockForm"></app-gainloss>
+              <app-gainloss [(formGroup)]="stockForm"></app-gainloss>           
+            </div>
+          </div>
+          <div class="row" style="margin-top:10%;">
+            <div class="col-xs-12 col-sm-12">
+              <app-disclaimer></app-disclaimer>
             </div>
           </div>
         </form>
