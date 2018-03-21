@@ -28,14 +28,16 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-12">
-              <app-gainloss [(formGroup)]="stockForm"></app-gainloss>           
+              <app-gainloss [(formGroup)]="stockForm"></app-gainloss>
+              <app-savecomputation [(formGroup)]="stockForm"></app-savecomputation>  
+              <app-disclaimer></app-disclaimer>        
             </div>
           </div>
-          <div class="row" style="margin-top:10%;">
-            <div class="col-xs-12 col-sm-12">
-              <app-disclaimer></app-disclaimer>
+          <div class="row">
+              <div class="col-xs-12 col-sm-12">
+                  <app-display-save-computation [(formGroup)]="stockForm"></app-display-save-computation>      
+              </div>
             </div>
-          </div>
         </form>
       </div>
     </div>

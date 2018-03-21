@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ComputeTransactionService } from '../compute-transaction.service';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-gainloss',
@@ -12,7 +13,33 @@ export class GainlossComponent implements OnInit {
 
   showGainLoss:boolean = false;  
 
-  constructor(private _computeTransaction: ComputeTransactionService) { }
+  constructor(private _computeTransaction: ComputeTransactionService, public dialog: MatDialog) { }
+
+  openDialogGainLossDataMap() {
+    this.dialog.open(DialogDataGainLossDataMap, {
+      data: {
+        entryText: 'This is a rough estimate of your gain or loss'
+      }
+    });
+  }
+
+
+
+  ngOnInit() {    
+  }
+
+
+}
+
+@Component({
+  selector: 'dialog-data-gainlossmap',
+  templateUrl: 'dialog-data-gainlossmap.html',
+})
+export class DialogDataGainLossDataMap {
+
+  @Input() public formGroup: FormGroup;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private _computeTransaction: ComputeTransactionService) {}
 
   loss_Instance1() {
     return this._computeTransaction.loss_1();
@@ -45,10 +72,4 @@ export class GainlossComponent implements OnInit {
   gain_Instance5() {
     return this._computeTransaction.gain_5();
   }
-
-
-  ngOnInit() {    
-  }
-
-
 }

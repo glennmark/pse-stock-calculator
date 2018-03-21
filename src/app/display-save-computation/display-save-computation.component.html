@@ -1,0 +1,82 @@
+<div class="table-responsive" style="margin-top:20px;">
+  <!--<li *ngFor="let obj of savedObject">{{obj}} - {{_computeTransaction.saveData_1[obj]}}</li>-->
+
+<table class="table" *ngIf="_computeTransaction.saveData_1">
+    <thead>
+      <tr>
+        <!--<th *ngFor="let obj of savedData1">{{obj}}</th>-->
+        <th>Number of Shares</th>
+        <th>Buying Price</th>
+        <th>Selling Price</th>
+        <th>Buying Amount</th>
+        <th>Selling Amount</th>
+        <th>Break Even at</th>
+        <th>Net Profit</th>
+      </tr>
+    </thead>
+    <!--<tbody>
+      <tr>
+        <td *ngFor="let obj of savedData1">{{_computeTransaction.saveData_1[obj] | number}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let obj of savedData2">{{_computeTransaction.saveData_2[obj] | number}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let obj of savedData3">{{_computeTransaction.saveData_3[obj] | number}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let obj of savedData4">{{_computeTransaction.saveData_4[obj] | number}}</td>
+      </tr>
+      <tr>
+        <td *ngFor="let obj of savedData5">{{_computeTransaction.saveData_5[obj] | number}}</td>
+      </tr>
+    </tbody>-->
+    <tbody>
+      <tr *ngIf="_computeTransaction.saveData_1">
+        <td>{{_computeTransaction.saveData_1.numOfShares | number}}</td>
+        <td>{{_computeTransaction.saveData_1.buyingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_1.sellingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_1.buyingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_1.sellingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_1.breakEven | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_1.netProfit | currency:'PHP'}} ({{_computeTransaction.saveData_1.netProfitInPercentage}}%)</td>
+      </tr>
+      <tr *ngIf="_computeTransaction.saveData_2">
+        <td>{{_computeTransaction.saveData_2.numOfShares | number}}</td>
+        <td>{{_computeTransaction.saveData_2.buyingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_2.sellingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_2.buyingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_2.sellingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_2.breakEven | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_2.netProfit | currency:'PHP'}} ({{_computeTransaction.saveData_2.netProfitInPercentage}}%)</td>
+      </tr>
+      <tr *ngIf="_computeTransaction.saveData_3">
+        <td>{{_computeTransaction.saveData_3.numOfShares | number}}</td>
+        <td>{{_computeTransaction.saveData_3.buyingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_3.sellingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_3.buyingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_3.sellingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_3.breakEven | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_3.netProfit | currency:'PHP'}} ({{_computeTransaction.saveData_3.netProfitInPercentage}}%)</td>
+      </tr>
+      <tr *ngIf="_computeTransaction.saveData_4">
+        <td>{{_computeTransaction.saveData_4.numOfShares | number}}</td>
+        <td>{{_computeTransaction.saveData_4.buyingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_4.sellingPrice | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_4.buyingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_4.sellingAmount | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_4.breakEven | currency:'PHP'}}</td>
+        <td>{{_computeTransaction.saveData_4.netProfit | currency:'PHP'}} ({{_computeTransaction.saveData_4.netProfitInPercentage}}%)</td>
+      </tr>
+      <tr *ngIf="_computeTransaction.saveData_5">
+          <td>{{_computeTransaction.saveData_5.numOfShares | number}}</td>
+          <td>{{_computeTransaction.saveData_5.buyingPrice | currency:'PHP'}}</td>
+          <td>{{_computeTransaction.saveData_5.sellingPrice | currency:'PHP'}}</td>
+          <td>{{_computeTransaction.saveData_5.buyingAmount | currency:'PHP'}}</td>
+          <td>{{_computeTransaction.saveData_5.sellingAmount | currency:'PHP'}}</td>
+          <td>{{_computeTransaction.saveData_5.breakEven | currency:'PHP'}}</td>
+          <td>{{_computeTransaction.saveData_5.netProfit | currency:'PHP'}} ({{_computeTransaction.saveData_5.netProfitInPercentage}}%)</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

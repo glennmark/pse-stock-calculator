@@ -34,6 +34,7 @@ export class AppComponent {
 
 
   ngOnInit() {
+    localStorage.clear();
     //this.title = this.ComputeTransactionService.enterSampleText();
     
 

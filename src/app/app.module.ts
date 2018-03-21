@@ -32,6 +32,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  MAT_DIALOG_DEFAULT_OPTIONS,
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -50,8 +51,10 @@ import { SharesComponent } from './shares/shares.component';
 import { BuyingComponent } from './buying/buying.component';
 import { SellingComponent } from './selling/selling.component';
 import { ComputeTransactionService } from './compute-transaction.service';
-import { GainlossComponent } from './gainloss/gainloss.component';
-import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { GainlossComponent,DialogDataGainLossDataMap } from './gainloss/gainloss.component';
+import { DisclaimerComponent,DialogDataDisclaimer } from './disclaimer/disclaimer.component';
+import { SavecomputationComponent } from './savecomputation/savecomputation.component';
+import { DisplaySaveComputationComponent } from './display-save-computation/display-save-computation.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -72,7 +75,11 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     BuyingComponent,
     SellingComponent,
     GainlossComponent,
-    DisclaimerComponent
+    DisclaimerComponent,
+    DialogDataDisclaimer,
+    DialogDataGainLossDataMap,
+    SavecomputationComponent,
+    DisplaySaveComputationComponent
     
   ],
   imports: [
@@ -115,9 +122,12 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ReactiveFormsModule,
     CurrencyMaskModule
   ],
+  entryComponents: [DisclaimerComponent, DialogDataDisclaimer, GainlossComponent, DialogDataGainLossDataMap],
   providers: [
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
-    ComputeTransactionService
+    ComputeTransactionService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
+    DisplaySaveComputationComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,14 @@ export class ComputeTransactionService {
   private specificBroker: number;
   private brokerCommission: number;
 
+  public counter:number = 0;
+
+  public saveData_1 = null;
+  public saveData_2 = null;
+  public saveData_3 = null;
+  public saveData_4 = null;
+  public saveData_5 = null;
+
   getNumShares() {
     return this.numOfShares;
   }
@@ -184,6 +192,58 @@ export class ComputeTransactionService {
   gain_5() {
     let nValue = this.buyingPrice * 1.163;
     return nValue.toFixed(2);
+  }
+
+  //saving
+  saveComputation() {
+    this.counter += 1;
+    let computation = {
+      "numOfShares":this.numOfShares,
+      "buyingPrice":(this.buyingPrice).toFixed(2),
+      "sellingPrice":(this.sellingPrice).toFixed(2),
+      "buyingAmount":(this.totalBuyingTransactionCost()).toFixed(2),
+      "sellingAmount":(this.totalSellingTransactionCost()).toFixed(2),
+      "breakEven":(this.breakEven()).toFixed(2),
+      "netProfit":(this.netProfit()).toFixed(2),
+      "netProfitInPercentage":this.netProfitInPercentage()
+      };
+      if (this.counter > 5) {
+        return false;
+      } else {
+        localStorage.setItem("computation_savedData_" + this.counter, JSON.stringify(computation));
+        this.loadSavedComputation();
+
+      }
+      
+  }
+
+  loadSavedComputation() {
+
+    let s1 = localStorage.getItem("computation_savedData_1");
+    let s2 = localStorage.getItem("computation_savedData_2");
+    let s3 = localStorage.getItem("computation_savedData_3");
+    let s4 = localStorage.getItem("computation_savedData_4");
+    let s5 = localStorage.getItem("computation_savedData_5");
+
+    if(s1)  {
+      this.saveData_1 = JSON.parse(s1);
+    }
+    if(s2)  {
+      this.saveData_2 = JSON.parse(s2);
+    }
+    if(s3)  {
+      this.saveData_3 = JSON.parse(s3);
+    }
+    if(s4)  {
+      this.saveData_4 = JSON.parse(s4);
+    }
+    if(s5)  {
+      this.saveData_5 = JSON.parse(s5);
+    }
+
+    
+    
+    
   }
 
 

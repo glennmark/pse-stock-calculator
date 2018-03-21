@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ComputeTransactionService } from '../compute-transaction.service';
 
@@ -8,6 +8,7 @@ import { ComputeTransactionService } from '../compute-transaction.service';
   styleUrls: ['./shares.component.css']
 })
 export class SharesComponent implements OnInit {
+
   @Input() public formGroup: FormGroup;
   brokers = [
     { value: 1, label: "BDO Nomura" },
@@ -22,7 +23,7 @@ export class SharesComponent implements OnInit {
   outputNumOfShares = '';
   constructor(private _computeTransaction: ComputeTransactionService) { }
 
-  
+
 
   ngOnInit() {
     this.formGroup.get('selectedBroker').valueChanges.subscribe(nValue => {
@@ -41,6 +42,8 @@ export class SharesComponent implements OnInit {
     });
 
   }
+
+ 
 
 
 

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>LOSS AND GAIN DATA MAP</h1>
+<div mat-dialog-content>
+  {{data.entryText}}
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>LOSS</th>
+          <th>GAIN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-danger">{{loss_Instance1()}} (-3%)</td>
+          <td class="text-success">{{gain_Instance1()}} (3%)</td>
+        </tr>
+        <tr>
+          <td class="text-danger">{{loss_Instance2()}} (-5%)</td>
+          <td class="text-success">{{gain_Instance2()}} (5%)</td>
+        </tr>
+        <tr>
+          <td class="text-danger">{{loss_Instance3()}} (-8%)</td>
+          <td class="text-success">{{gain_Instance3()}} (8%)</td>
+        </tr>
+        <tr>
+          <td class="text-danger">{{loss_Instance4()}} (-10%)</td>
+          <td class="text-success">{{gain_Instance4()}} (10%)</td>
+        </tr>
+        <tr>
+          <td class="text-danger">{{loss_Instance5()}} (-15%)</td>
+          <td class="text-success">{{gain_Instance5()}} (15%)</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -2,7 +2,9 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 html, 
-body,
+body {
+    height: 100%;
+}
 div.angularContainer {
     min-height: 100%;
 }
@@ -109,4 +111,7 @@ div.angularContainer.night-mode option {
     color: #de7982;
     background-color: #fff3f4;
     border-color: #ffe3e6;
+}
+.btn.btn-default.disabled {
+    pointer-events: none;
 }
