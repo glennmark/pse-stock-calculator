@@ -115,3 +115,12 @@ div.angularContainer.night-mode option {
 .btn.btn-default.disabled {
     pointer-events: none;
 }
+@media(max-width:767px) {
+    .jumbotron {
+        min-height: 322px;
+    }
+    .btn {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

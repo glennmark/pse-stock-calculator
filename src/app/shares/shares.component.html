@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-lg-3">
       <div class="form-group" [ngClass]="{'has-error':!formGroup.controls['selectedBroker'].valid && formGroup.controls['selectedBroker'].touched}">
         <label>Broker</label>
         <select [formControl]="formGroup.controls['selectedBroker']" class="form-control">
@@ -9,7 +9,7 @@
         <div *ngIf="formGroup.controls['selectedBroker'].hasError('required') && formGroup.controls['selectedBroker'].touched" class="alert alert-danger">You must select a broker</div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-lg-3">
       <div class="form-group" [ngClass]="{'has-error':!formGroup.controls['numOfShares'].valid && formGroup.controls['numOfShares'].touched}">
         <label>Number of Shares</label>
         <input type="text" class="form-control" [formControl]="formGroup.controls['numOfShares']" appNumbersOnly/>

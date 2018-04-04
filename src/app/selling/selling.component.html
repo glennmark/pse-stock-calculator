@@ -1,14 +1,14 @@
 <div class="jumbotron selling">
   <h2 class="text-center">SELLING</h2>
   <div class="row">
-    <div class="col-xs-12 col-sm-12">
+    <div class="col-lg-12">
       <div class="form-group" [ngClass]="{'has-error':!formGroup.controls['sellingPrice'].valid && formGroup.controls['sellingPrice'].touched}">
         <label>Selling Price</label>
         <input type="text" class="form-control" [formControl]="formGroup.controls['sellingPrice']" currencyMask/>
         <div *ngIf="formGroup.controls['sellingPrice'].hasError('required') && formGroup.controls['sellingPrice'].touched" class="alert alert-danger">You must enter a valid selling price</div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-12">
+    <div class="col-lg-12 d-none d-md-block">
       <table class="table table-dark">
         <thead>
           <tr>
@@ -26,12 +26,16 @@
         </tbody>
       </table>
     </div>
-  </div>
-  <div class="row" style="display:none;">
-    <div class="col-xs-12 col-sm-12">
-      <div>
-        This is the Stock Transaction Tax: {{computeStockTransactionTax() | currency:'PHP'}}
-      </div>
+    <div class="col-lg-12 d-block d-md-none">
+      <p>Total Fees:
+        <b>{{totalSellingFees() | currency:'PHP'}}</b>
+      </p>
+      <p>Total Amount:
+        <b>{{totalSellingTransactionCost() | currency:'PHP'}}</b>
+      </p>
+      <p>Net Profit:
+        <b [ngClass]="{'red-profit':netProfit() < 0, 'green-profit': netProfit() > 0}">{{netProfit() | currency:'PHP'}} ({{netProfitInPercentage()}}%)</b>
+      </p>
     </div>
   </div>
 </div>

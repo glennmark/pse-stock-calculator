@@ -1,15 +1,15 @@
 <div class="jumbotron buying">
   <h2 class="text-center">BUYING</h2>
   <div class="row">
-    <div class="col-xs-12 col-sm-12">
+    <div class="col-lg-12">
       <div class="form-group" [ngClass]="{'has-error':!formGroup.controls['buyingPrice'].valid && formGroup.controls['buyingPrice'].touched}">
         <label>Buying Price</label>
         <input type="text" class="form-control" [formControl]="formGroup.controls['buyingPrice']" currencyMask/>
         <div *ngIf="formGroup.controls['buyingPrice'].hasError('required') && formGroup.controls['buyingPrice'].touched" class="alert alert-danger">You must enter a valid buying price</div>
       </div>
-    </div>  
+    </div>
 
-    <div class="col-xs-12 col-sm-12">
+    <div class="col-lg-12 d-none d-md-block">
       <table class="table table-dark">
         <thead>
           <tr>
@@ -27,27 +27,17 @@
         </tbody>
       </table>
     </div>
-  </div>
-  <div class="row" style="display:none;">
-    <div class="col-xs-12 col-sm-12">
-      <div>
-        This is the Gross Amount: {{computeGrossTransactionAmount() | currency:'PHP'}}
-      </div>
-      <div>
-        This is the Broker's Commission: {{computeBrokersCommission_Buying() | currency:'PHP'}}
-      </div>
-      <div>
-        This is the VAT on Broker's Commission: {{computeVATonBrokersCommission() | currency:'PHP'}}
-      </div>
-      <div>
-        This is the SCCP Fee: {{computeSCCPFee() | currency:'PHP'}}
-      </div>
-      <div>
-        This is the PSE Transaction Fee: {{computePSETransactionFee() | currency:'PHP'}}
-      </div>
-      <div>
-        This is the TOTAL BUYING COST: {{totalBuyingTransactionCost() | currency:'PHP'}}
-      </div>
+    <div class="col-lg-12 d-block d-md-none">
+      <p>Total Fees:
+        <b>{{totalBuyingFees() | currency:'PHP'}}</b>
+      </p>
+      <p>Total Amount:
+        <b>{{totalBuyingTransactionCost() | currency:'PHP'}}</b>
+      </p>
+      <p>Break-even:
+        <b>{{breakEven() | currency:'PHP'}}</b>
+      </p>
     </div>
+
   </div>
 </div>
